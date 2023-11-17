@@ -9,6 +9,7 @@ int root3(int number) {
 	while (abs(y1 - y) >= pow(10, -5)) {
 		y = y1;
 		y1 = 0.5 * (y + 3 * number / (2 * pow(y, 2) + number / y));
+		cout << y1 << ' ' << y<< endl;
 	}
 	cout << y;
 	return 0;
