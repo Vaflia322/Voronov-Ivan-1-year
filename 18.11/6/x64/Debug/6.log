@@ -1,3 +1,0 @@
-﻿  number6.cpp
-C:\Users\User\Desktop\git_exercise\18.11\6\number6.cpp(9,18): warning C4244: +=: преобразование "double" в "__int64", возможна потеря данных
-  6.vcxproj -> C:\Users\User\Desktop\git_exercise\18.11\6\x64\Debug\6.exe

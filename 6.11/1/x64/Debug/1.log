@@ -1,3 +1,0 @@
-﻿  1.cpp
-C:\Users\User\Desktop\git_exercise\6.11\1\1.cpp(10,14): warning C4244: +=: преобразование "double" в "int", возможна потеря данных
-  1.vcxproj -> C:\Users\User\Desktop\git_exercise\6.11\1\x64\Debug\1.exe

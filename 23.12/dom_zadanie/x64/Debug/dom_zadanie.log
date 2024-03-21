@@ -1,3 +1,0 @@
-﻿  dom.cpp
-C:\Users\User\Desktop\git_exercise\23.12\dom_zadanie\dom.cpp(34,16): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
-  dom_zadanie.vcxproj -> C:\Users\User\Desktop\git_exercise\23.12\dom_zadanie\x64\Debug\dom_zadanie.exe
