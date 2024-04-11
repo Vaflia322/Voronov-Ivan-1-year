@@ -1,0 +1,3 @@
+﻿  Polka.cpp
+C:\Users\User\Desktop\git_exercise\12.04\Polka\Polka.cpp(69,15): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+  Polka.vcxproj -> C:\Users\User\Desktop\git_exercise\12.04\Polka\x64\Debug\Polka.exe
