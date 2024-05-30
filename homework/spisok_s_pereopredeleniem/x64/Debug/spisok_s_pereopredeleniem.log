@@ -1,0 +1,3 @@
+﻿  resh.cpp
+C:\Users\User\Desktop\git_exercise\homework\spisok_s_pereopredeleniem\resh.cpp(23,8): warning C4930: Node head(void): функция с прототипом не вызвана (предполагалось определение переменной?)
+  spisok_s_pereopredeleniem.vcxproj -> C:\Users\User\Desktop\git_exercise\homework\spisok_s_pereopredeleniem\x64\Debug\spisok_s_pereopredeleniem.exe

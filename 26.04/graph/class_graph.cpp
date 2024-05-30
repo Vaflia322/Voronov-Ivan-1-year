@@ -8,40 +8,31 @@ private:
 	int amount_vertex;
 	int** adjacency_matrix;
 public:
-	Graph(){}
-	Graph(int amount_vertex, int** adjacency_matrix) {
-		amount_vertex = this->amount_vertex;
-		adjacency_matrix = this->adjacency_matrix;
-		cout << "graph generate" << endl;
+	void createGraph() {
+		int n;
+		cin >> n;
+		amount_vertex = n;
+		adjacency_matrix = new int* [n];
+		for (int i = 0; i < n; i++) {
+			adjacency_matrix[i] = new int[n];
+			for (int k = 0; k < n; k++) {
+				cin >> adjacency_matrix[i][k];
+			}
+		}
 	}
-	void append_vertex(int place, int* array_line_in, int* array_line_out) {
+	void append_vertex() {
 		int** temp_matrix = new int* [amount_vertex + 1];
 		for (int i = 0; i < (amount_vertex + 1); i++) {
-			adjacency_matrix[i] = new int[amount_vertex + 1];
+			temp_matrix[i] = new int[amount_vertex + 1];
 		}
-		for (int i = 0; i < (amount_vertex + 1); i++) {
-			for (int k = 0; k < (amount_vertex + 1); k++) {
-				if (i == place) {
-					temp_matrix[i][k] = array_line_in[k];
-				}
-				else if (k == place) {
-					temp_matrix[i][k] = array_line_out[i];
-				}
-				else {
-					if (i > place) {
-						temp_matrix[i][k] = adjacency_matrix[i - 1][k];
-					}
-					else if (k > place) {
-						temp_matrix[i][k] = adjacency_matrix[i][k - 1];
-					}
-					else if (k > place and i > place) {
-						temp_matrix[i][k] = adjacency_matrix[i - 1][k - 1];
-					}
-					else {
-						temp_matrix[i][k] = adjacency_matrix[i][k];
-					}
-				}
+		for (int i = 0; i < amount_vertex ; i++) {
+			for (int k = 0; k < amount_vertex; k++) {
+				temp_matrix[i][k] = adjacency_matrix[i][k];
 			}
+		}
+		for (int i = 0; i < amount_vertex + 1;i++) {
+			temp_matrix[amount_vertex][i] = 0;
+			temp_matrix[i][amount_vertex] = 0;
 		}
 		amount_vertex++;
 		delete[] adjacency_matrix;
@@ -53,24 +44,27 @@ public:
 	void delete_vertex(int place) {
 		int** temp_matrix = new int* [amount_vertex + 1];
 		for (int i = 0; i < (amount_vertex - 1); i++) {
-			adjacency_matrix[i] = new int[amount_vertex + 1];
+			temp_matrix[i] = new int[amount_vertex -1];
 		}
 		for (int i = 0; i < (amount_vertex - 1); i++) {
 			for (int k = 0; k < (amount_vertex - 1); k++) {
 				if (i < place and k< place) {
 					temp_matrix[i][k] = adjacency_matrix[i][k];
 				}
-				else if (i > place) {
+				else if (k >= place and i >= place) {
+					temp_matrix[i][k] = adjacency_matrix[i + 1][k + 1];
+				}
+				else if (i >= place) {
 					temp_matrix[i][k] = adjacency_matrix[i+1][k];
 				}
-				else if (k > place) {
+				else if (k >= place) {
 					temp_matrix[i][k] = adjacency_matrix[i][k+1];
-				}
-				else if (k > place and i > place) {
-					temp_matrix[i][k] = adjacency_matrix[i+1][k+1];
 				}
 			}
 		}
+		amount_vertex--;
+		delete[] adjacency_matrix;
+		adjacency_matrix = temp_matrix;
 	}
 	void delete_line(int in, int out) {
 		adjacency_matrix[in][out] = 0;
@@ -109,17 +103,22 @@ public:
 };
 
 int main() {
-	int n; cin >> n;
-	int** array = new int* [n];
-	for (int i = 0; i < n;i++) {
-		array[i] = new int[n];
-	}
-
-	for (int i = 0; i < n;i++) {
-		for (int k = 0; k < n; k++) {
-			cin >> array[i][k];
-		}
-	}
-	Graph graph{n,array};
+	Graph graph;
+	graph.createGraph();
 	graph.print_matrix();
+	cout << endl;
+	graph.append_vertex();
+	graph.print_matrix();
+	cout << endl;
+	graph.append_line(3, 2, 77);
+	graph.print_matrix();
+	cout << endl;
+	graph.delete_vertex(1);
+	graph.print_matrix();
+	cout << endl;
+	//int* a = new int[2];
+	for (int i = 0; i < 3;i++) {
+		cout << graph.return_length(0)[i];
+	}
+	return 0;
 }
