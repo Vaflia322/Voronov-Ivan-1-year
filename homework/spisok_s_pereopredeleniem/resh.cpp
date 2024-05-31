@@ -34,7 +34,6 @@ public:
 		Node* ad_node = new Node;
 		ad_node->value = el;
 		if (el < head.value) {
-			ad_node->next_Node = head.next_Node;
 			head = *ad_node;
 			head.next_Node = &ttemp;
 			return;
